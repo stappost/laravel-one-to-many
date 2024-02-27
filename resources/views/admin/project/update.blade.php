@@ -64,7 +64,21 @@
                             </div>
                         </div>
                         <div class="col-6 my-3">
+                            <label for="type_id">Tipo</label>
+                            <select name="type_id" id="type_id" class="form-select">
+                                <option value="">Seleziona un tipo</option>
+                                @foreach ($types as $type)
+                                    <option value="{{ $type->id }}">{{ $type->name }}</option>
+                                @endforeach
+
+                            </select>
+                        </div>
+                        <div class="col-6 my-3">
                             <label for="logo">Logo</label>
+                            <input type="file" name="logo" id="logo"
+                                class="form-control @error('logo') is-invalid @enderror" accept="image/*">
+                        </div>
+                        <div class="col-6 my-3">
                             @if ($project->logo != null)
                                 <div class="w-25">
                                     <img src="{{ asset('/storage/' . $project->logo) }}" alt="{{ $project->name }}"
@@ -72,8 +86,6 @@
 
                                 </div>
                             @endif
-                            <input type="file" name="logo" id="logo"
-                                class="form-control @error('logo') is-invalid @enderror" accept="image/*">
                         </div>
                         <div class="col-12">
                             <label for="description">Descrizione</label>
