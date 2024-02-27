@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 
 use Faker\Generator as Faker;
 
-use App\Models\type;
+use App\Models\Type;
 
 class TypeSeeder extends Seeder
 {

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Project;
-use App\Models\type;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
@@ -31,7 +31,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        $types = type::all();
+        $types = Type::all();
         return view('admin.project.store', compact('types'));
     }
 
@@ -77,7 +77,7 @@ class ProjectController extends Controller
     public function edit(Project $project, Request $request)
     {
         $error_message = $request->error_message;
-        $types = type::all();
+        $types = Type::all();
         return view('admin.project.update', compact('project', 'types', 'error_message'));
     }
 

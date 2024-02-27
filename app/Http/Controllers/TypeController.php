@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\type;
+use App\Models\Type;
 use App\Http\Requests\StoretypeRequest;
 use App\Http\Requests\UpdatetypeRequest;
 

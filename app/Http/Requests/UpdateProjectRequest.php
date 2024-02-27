@@ -27,7 +27,8 @@ class UpdateProjectRequest extends FormRequest
         return [
             'name' => 'required|max:50',
             'description' => 'required',
-            'logo'=> 'max:250|image|size:1024',
+            'logo'=> 'max:250|image|max:1024',
+            'type_id' => 'exists:types',
             'start_project'=> 'required|date',
             'finish_project'=> 'date',
             'in_team'=> 'required'
@@ -43,6 +44,7 @@ class UpdateProjectRequest extends FormRequest
             'logo.max' => 'Il nome del file deve essere di al massimo 250 caratteri',
             'logo.image' => 'Il file deve essere un\'immagine',
             'logo.size' => 'Il file può pesare al massimo 1024kb',
+            'type_id.exists' => 'Il tipo selezionato non è presente',
             'start_project.required' => 'E\' necessaria una data di inizio progetto',
             'start_project.date' => 'La data deve essere in formato numerico Y-M-D',
             'finish_project.date' => 'La data deve essere in formato numerico Y-M-D',
